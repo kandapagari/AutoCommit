@@ -13,25 +13,25 @@ AutoCommit is a script that simplifies the process of generating a commit messag
 
 2. Install the required dependencies by creating a Conda environment:
 
-```bash
-git clone git@github.com:kandapagari/AutoCommit.git
-conda create --name autocommit python=3.10
-conda activate autocommit
-pip install poetry
-poetry install
-```
+    ```bash
+    git clone git@github.com:kandapagari/AutoCommit.git
+    conda create --name autocommit python=3.10
+    conda activate autocommit
+    pip install poetry
+    poetry install
+    ```
 
 3. Either export `OPENAI_API_KEY` as an environment variable or add it to the `.env` file in the root of the repository. see [OpenAI API](https://platform.openai.com/docs/api-reference/authentication) for more information and [.env.example](.env.example) for an example.
 
-```bash
-export OPENAI_API_KEY=<your-api-key>
-```
+    ```bash
+    export OPENAI_API_KEY=<your-api-key>
+    ```
 
 4. Set up the alias by adding the following line to your shell configuration file (e.g., ~/.bashrc, ~/.zshrc):
 
-```bash
-alias autocommit='bash /path/to/AutoCommit/run.sh'
-```
+    ```bash
+    alias autocommit='bash /path/to/AutoCommit/run.sh'
+    ```
 
 ## Usage
 
@@ -48,9 +48,9 @@ autocommit
 
 1. Stage your changes using `git add`.
 
-2. Run the `AutoCommit` alias.
+2. Run the `autocommit` alias.
 
-3. The script will activate the `AutoCommit` Conda environment and execute the Python script `src/AutoCommit.py`.
+3. The script will activate the `autocommit` Conda environment and execute the Python script `src/autocommit.py`.
 
 4. Git will prompt you to edit the generated commit message. Make any necessary modifications and save the file to complete the commit.
 
