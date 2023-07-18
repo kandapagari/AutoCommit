@@ -14,7 +14,6 @@ drop-down menu.
 Language-dependent terms are now set in centralized file i18n_gui.vars
 as variables. However, English is still the only option until now.
 
-closes #123
 ```
 
 ## Pattern
