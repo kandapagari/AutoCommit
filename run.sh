@@ -1,6 +1,5 @@
 #! /bin/bash
 
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 eval "$(conda shell.bash hook)"
 conda activate codecommit
 if [ $# -eq 0 ];
