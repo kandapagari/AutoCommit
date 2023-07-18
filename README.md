@@ -59,7 +59,7 @@ autocommit
 run this command in from the root of the repository:
 
 ```bash
-AutoCommit
+autocommit
 ```
 
 This will generate a commit message for the staged files and initiate the commit process. Git will open a text editor for you to review and modify the generated commit message.
