@@ -50,7 +50,7 @@ autocommit
 
 2. Run the `AutoCommit` alias.
 
-3. The script will activate the `AutoCommit` Conda environment and execute the Python script `app/AutoCommit.py`.
+3. The script will activate the `AutoCommit` Conda environment and execute the Python script `src/AutoCommit.py`.
 
 4. Git will prompt you to edit the generated commit message. Make any necessary modifications and save the file to complete the commit.
 

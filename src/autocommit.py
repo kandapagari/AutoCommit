@@ -14,7 +14,7 @@ from langchain.document_loaders import UnstructuredMarkdownLoader
 from langchain.schema import HumanMessage, SystemMessage
 from rich import print
 
-from app.utils import coro
+from utils import coro
 
 _ = dotenv.load_dotenv(dotenv.find_dotenv())
 openai.api_key = os.environ["OPENAI_API_KEY"]
