@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "codecommit"
+version = "0.1.0"
+description = ""
+authors = ["pavan kumar"]
+readme = "README.md"
+license = "MIT"
+packages = [
+    { include = "app", from = "." }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+click = "^8.1.5"
+openai = "^0.27.8"
+python-dotenv = "^1.0.0"
+langchain = "^0.0.235"
+unstructured = "^0.8.1"
+rich = "^13.4.2"
+
+[tool.poetry.group.dev.dependencies]
+yapf = "^0.40.1"
+flake8 = "^6.0.0"
+pyinstaller = "^5.13.0"
+poethepoet = "^0.21.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poe.tasks]
+package = "poetry run pyinstaller app/codecommit.py --collect-submodules app --onefile --name codecommit"
