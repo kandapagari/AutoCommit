@@ -21,7 +21,7 @@ pip install poetry
 poetry install
 ```
 
-3. Either export `OPENAI_API_KEY` as an environment variable or add it to the `.env` file in the root of the repository. see [OpenAI API](https://platform.openai.com/docs/api-reference/authentication) for more information and .env.example for an example.
+3. Either export `OPENAI_API_KEY` as an environment variable or add it to the `.env` file in the root of the repository. see [OpenAI API](https://platform.openai.com/docs/api-reference/authentication) for more information and [.env.example](.env.example) for an example.
 
 ```bash
 export OPENAI_API_KEY=<your-api-key>
