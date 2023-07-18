@@ -7,3 +7,5 @@ then
     conda deactivate
     exit 0
 fi
+conda deactivate
+exit 0
