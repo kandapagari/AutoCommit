@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "autocommit"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["pavan kumar"]
 readme = "README.md"
@@ -29,7 +29,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poe.tasks]
-package = "poetry run pyinstaller src/autocommit.py --collect-submodules src --onefile --name autocommit"
+package = "poetry run pyinstaller src/autocommit.py --collect-submodules . --onefile --name autocommit"
 clean =  """
 # Multiline commands including comments work too. Unescaped whitespace is ignored.
 rm -rf .coverage
