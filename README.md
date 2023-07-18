@@ -14,13 +14,20 @@ CodeCommit is a script that simplifies the process of generating a commit messag
 2. Install the required dependencies by creating a Conda environment:
 
 ```bash
+git clone git@github.com:kandapagari/CodeCommit.git
 conda create --name codecommit python=3.10
 conda activate codecommit
 pip install poetry
 poetry install
 ```
 
-3. Set up the alias by adding the following line to your shell configuration file (e.g., ~/.bashrc, ~/.zshrc):
+3. Either export `OPENAI_API_KEY` as an environment variable or add it to the `.env` file in the root of the repository. see [OpenAI API](https://beta.openai.com/docs/developer-quickstart/your-api-keys) for more information and .env.example for an example.
+
+```bash
+export OPENAI_API_KEY=<your-api-key>
+```
+
+4. Set up the alias by adding the following line to your shell configuration file (e.g., ~/.bashrc, ~/.zshrc):
 
 ```bash
 alias codecommit='bash /path/to/CodeCommit/run.sh'
