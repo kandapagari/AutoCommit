@@ -1,0 +1,75 @@
+repos:
+  - repo: https://github.com/PyCQA/isort
+    rev: "5.12.0"
+    hooks:
+      - id: isort
+  - repo: https://github.com/PyCQA/docformatter
+    rev: "v1.7.5"
+    hooks:
+      - id: docformatter
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: "v4.4.0"
+    hooks:
+      - id: check-ast
+      - id: check-docstring-first
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-toml
+      - id: check-yaml
+        stages: [commit]
+      - id: debug-statements
+      - id: detect-private-key
+        stages: [commit]
+      - id: end-of-file-fixer
+      - id: fix-encoding-pragma
+      # - id: no-commit-to-branch
+      #   args: [-b, main]
+      - id: trailing-whitespace
+  - repo: https://github.com/Carreau/velin
+    rev: "0.0.12"
+    hooks:
+      - id: velin
+        args: [--check]
+  # - repo: https://github.com/pre-commit/mirrors-mypy
+  #   rev: "v1.4.1" # Use the sha / tag you want to point at
+  #   hooks:
+  #     - id: mypy
+  - repo: https://github.com/google/yapf
+    rev: "v0.40.1" # Use the revision sha / tag you want to point at
+    hooks:
+      - id: yapf
+        args:
+          [
+            --style,
+            "{based_on_style: pep8, column_limit: 99, split_penalty_after_opening_bracket: 150, split_penalty_excess_character: 25000, split_penalty_for_added_line_split: 150}",
+          ]
+  - repo: https://github.com/PyCQA/flake8
+    rev: "6.0.0"
+    hooks:
+      - id: flake8
+        args: [--max-line-length=99]
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: "v1.10.0"
+    hooks:
+      - id: python-no-eval
+      - id: python-no-log-warn
+      - id: python-use-type-annotations
+      - id: python-check-mock-methods
+      - id: text-unicode-replacement-char
+  - repo: https://github.com/asottile/yesqa
+    rev: v1.5.0
+    hooks:
+      - id: yesqa
+  # - repo: https://github.com/PyCQA/bandit
+  #   rev: "1.7.5"
+  #   hooks:
+  #     - id: bandit
+  # - repo: https://github.com/asottile/dead
+  #   rev: "v1.5.2"
+  #   hooks:
+  #     - id: dead
+  # - repo: https://github.com/mwouts/jupytext
+  #   rev: "v1.14.7"
+  #   hooks:
+  #     - id: jupytext
+  #       args: [--set-formats, "ipynb,py:percent,md"]

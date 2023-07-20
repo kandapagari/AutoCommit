@@ -23,6 +23,7 @@ yapf = "^0.40.1"
 flake8 = "^6.0.0"
 pyinstaller = "^5.13.0"
 poethepoet = "^0.21.1"
+pre-commit = "^3.3.3"
 
 [build-system]
 requires = ["poetry-core"]

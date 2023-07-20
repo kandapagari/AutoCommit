@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import asyncio
 import os
@@ -55,9 +56,8 @@ def parse_diff(diff: str) -> tuple[str, str]:
 
 
 def assemble_diffs(parsed_diffs, cutoff):
-    """
-    Create multiple well-formatted diff strings, each being shorter than cutoff
-    """
+    """Create multiple well-formatted diff strings, each being shorter than
+    cutoff."""
     assembled_diffs = [""]
 
     def add_chunk(chunk):
