@@ -15,7 +15,7 @@ else
     conda activate autocommit
     cd $(dirname "$0")
     pip install poetry
-    poetry install
+    poetry install --compile
 fi
 
 $(dirname "$0")/src/autocommit.py "$@"
