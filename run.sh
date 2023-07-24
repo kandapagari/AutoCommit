@@ -12,6 +12,7 @@ else
     echo "autocommit env not found creating it"
     conda create -n autocommit python=3.10 -y
     conda activate autocommit
+    cd $(dirname "$0")
     pip install poetry
     poetry install
 fi
