@@ -1,13 +1,11 @@
 [tool.poetry]
 name = "autocommit"
-version = "0.1.1"
+version = "0.0.0"
 description = ""
 authors = ["pavan kumar kandapagari <785pavan@gmail.com>"]
 readme = "README.md"
 license = "MIT"
-packages = [
-    { include = "src", from = "." }
-]
+packages = [{ include = "src", from = "." }]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
@@ -25,13 +23,18 @@ pyinstaller = "^5.13.0"
 poethepoet = "^0.21.1"
 pre-commit = "^3.3.3"
 
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+style = "semver"
+
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core", "poetry-dynamic-versioning"]
+build-backend = "poetry_dynamic_versioning.backend"
 
 [tool.poe.tasks]
 package = "poetry run pyinstaller src/autocommit.py --collect-submodules . --onefile --name autocommit"
-clean =  """
+clean = """
 # Multiline commands including comments work too. Unescaped whitespace is ignored.
 rm -rf .coverage
        .cache
