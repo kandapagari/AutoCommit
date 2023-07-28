@@ -134,7 +134,7 @@ async def main(print_message: bool = False, guild_path: str | Path | None = None
         guild_lines = load_commit_guildlines(guild_path)
         if not get_diff(ignore_whitespace=False):
             print(
-                "No changes staged. Use 'git add' to stage files before invoking codecomit."
+                "No changes staged. Use 'git add' to stage files before invoking AutoCommit."
             )
             exit()
         commit_message = await generate_commit_message(get_diff(), guild_lines)
