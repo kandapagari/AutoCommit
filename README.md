@@ -30,13 +30,13 @@ AutoCommit is a script that simplifies the process of generating a commit messag
 4. Set up the alias by adding the following line to your shell configuration file (e.g., ~/.bashrc, ~/.zshrc):
 
     ```bash
-    alias autocommit='bash /path/to/AutoCommit/run.sh'
+    echo "alias ac='bash $(pwd)/run.sh'" >> ~/.bashrc
     ```
 
 ## Usage
 
 ```bash
-autocommit
+ac
 ```
 
 ### Options
