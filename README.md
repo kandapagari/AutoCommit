@@ -33,9 +33,15 @@ AutoCommit is a script that simplifies the process of generating a commit messag
     echo "alias ac='bash $(pwd)/run.sh'" >> ~/.bashrc
     ```
 
+only use for quick commit if you trust AutoCommit to work
+    ```bash
+    echo "alias qac='echo \":q\" | ac'" >> ~/.bashrc
+    ```
+
 ## Usage
 
 ```bash
+source ~/.bashrc
 ac
 ```
 
