@@ -15,6 +15,7 @@ AutoCommit is a script that simplifies the process of generating a commit messag
 
     ```bash
     git clone git@github.com:kandapagari/AutoCommit.git
+    cd AutoCommit
     conda create --name autocommit python=3.10 poetry -y
     conda activate autocommit
     poetry install
@@ -53,7 +54,7 @@ ac
 
 1. Stage your changes using `git add`.
 
-2. Run the `autocommit` alias.
+2. Run the `ac` or `qac` alias.
 
 3. The script will activate the `autocommit` Conda environment and execute the Python script `src/autocommit.py`.
 
@@ -64,7 +65,13 @@ ac
 run this command in from the root of the repository:
 
 ```bash
-autocommit
+ac
+```
+
+or
+
+```bash
+qac
 ```
 
 This will generate a commit message for the staged files and initiate the commit process. Git will open a text editor for you to review and modify the generated commit message.
