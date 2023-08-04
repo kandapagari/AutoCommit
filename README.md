@@ -15,9 +15,8 @@ AutoCommit is a script that simplifies the process of generating a commit messag
 
     ```bash
     git clone git@github.com:kandapagari/AutoCommit.git
-    conda create --name autocommit python=3.10
+    conda create --name autocommit python=3.10 poetry -y
     conda activate autocommit
-    pip install poetry
     poetry install
     ```
 
