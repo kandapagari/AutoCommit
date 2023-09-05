@@ -1,6 +1,6 @@
 # AutoCommit
 
-AutoCommit is a script that simplifies the process of generating a commit message for staged files and committing them using Git. It combines a Python script and a Bash script to activate the necessary environment and run the Python code.
+AutoCommit is a script that simplifies the process of generating a commit message using `gpt-4` from OpenAI-API's, for staged files and committing them using Git. It combines a Python script and a Bash script to activate the necessary environment and run the Python code.
 
 ## Requirements
 

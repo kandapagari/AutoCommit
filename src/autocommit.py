@@ -80,7 +80,7 @@ def assemble_diffs(parsed_diffs, cutoff):
 
 
 async def complete(prompt, guild_lines: str | Path | None = None):
-    model = ChatOpenAI(temperature=0, max_tokens=128, model="gpt-3.5-turbo-16k")
+    model = ChatOpenAI(temperature=0, max_tokens=128, model="gpt-4")
     messages = [SystemMessage(content=guild_lines),
                 HumanMessage(content=prompt[: PROMPT_CUTOFF + 100])]
     completion = model(messages)
