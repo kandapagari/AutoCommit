@@ -4,7 +4,7 @@ These patterns are derived from several common guidelines, primarily from [￼Ka
 
 ## Example
 
-``` markdown
+```
 feat(gui): added language selection ability
 
 Multi-language support is needed for cooperation with lower bavarian.
@@ -20,7 +20,7 @@ as variables. However, English is still the only option until now.
 
 A commit message should look like (blank lines should stay blank):
 
-``` markdown
+```
 <''type''>(<''scope''>): <''subject''>
 
 <''body''>
