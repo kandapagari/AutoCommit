@@ -121,9 +121,9 @@ def load_commit_guildlines(guild_path: str | Path | None = None):
 
 
 @click.command(help=(
-            "Generate a commit message for staged files and commit them. "
-            "Git will prompt you to edit the generated commit message."
-        ))
+    "Generate a commit message for staged files and commit them. "
+    "Git will prompt you to edit the generated commit message."
+))
 @click.option("-p", '--print-message', is_flag=True,
               help="print message in place of performing commit")
 @click.option("-g", '--guild-path', type=click.Path(exists=True, dir_okay=False), required=False,
