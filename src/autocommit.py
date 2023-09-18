@@ -148,7 +148,7 @@ async def main(print_message: bool = False, guild_path: str | Path | None = None
     if print_message:
         print(commit_message)
     else:
-        exit(commit(commit_message))
+        exit(commit(commit_message.replace('`', '')))
 
 
 if __name__ == "__main__":
