@@ -127,7 +127,7 @@ def load_commit_guildlines(guild_path: str | Path | None = None):
 @click.option("-p", '--print-message', is_flag=True,
               help="print message in place of performing commit")
 @click.option("-g", '--guild-path', type=click.Path(exists=True, dir_okay=False), required=False,
-              help='path to commit guildline markdown file')
+              help='path to commit guildlines markdown file')
 @coro
 async def main(print_message: bool = False, guild_path: str | Path | None = None):
     try:
