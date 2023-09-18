@@ -38,9 +38,9 @@ The type shall always be lower-case.
 `feat`: new, removed or changed feature for the user; not a new feature for build script (that would be of type chore)
 `fix`: bugfix for the user; bug fix in build script may better typed with chore
 `pref`: performance improvements
-`refactor`: refactoring/restructuring production code; preserving (external) behaviour, though API may change; e.g. renaming a variable of function or merging two functions into one
+`refactor`: refactoring/restructuring production code; preserving (external) behavior, though API may change; e.g. renaming a variable of function or merging two functions into one
 `revert`: reverted commit or parts of it
-`style`: code cosmetica like formatting, missing semi colons etc; no production code change
+`style`: code cosmetic like formatting, missing semi colons etc; no production code change
 `test`: adding missing tests; refactoring tests; no production code change
 `chore`: updating grunt tasks/maintaining etc; no production code change; e.g. new release/tag, edited list of contributors
 
