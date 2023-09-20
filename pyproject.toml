@@ -10,24 +10,24 @@ packages = [{ include = "src", from = "." }]
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
 click = "^8.1"
+langchain = "^0.0.295"
+markdown = "^3.4.4"
 openai = {extras = ["all"], version = "^0.28.0"}
 python-dotenv = "^1.0"
-langchain = "^0.0.295"
-unstructured = "^0.10"
 rich = "^13.5"
-markdown = "^3.4.4"
+unstructured = "^0.10"
 
 [tool.poetry.group.dev.dependencies]
-yapf = "^0.40"
 flake8 = "^6.1"
-pyinstaller = "^5.13"
 poethepoet = "^0.22"
 pre-commit = "^3.4"
+pyinstaller = "^5.13"
+yapf = "^0.40"
 
 [tool.poetry-dynamic-versioning]
 enable = true
-vcs = "git"
 style = "semver"
+vcs = "git"
 
 [tool.ruff]
 # Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
@@ -117,8 +117,8 @@ target-version = "py311"
 max-complexity = 10
 
 [build-system]
-requires = ["poetry-core", "poetry-dynamic-versioning"]
 build-backend = "poetry_dynamic_versioning.backend"
+requires = ["poetry-core", "poetry-dynamic-versioning"]
 
 [tool.poe.tasks]
 package = "poetry run pyinstaller src/autocommit.py --collect-submodules . --onefile --name autocommit"
