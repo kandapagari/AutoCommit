@@ -9,24 +9,111 @@ packages = [{ include = "src", from = "." }]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
-click = "^8.1.5"
-openai = "^0.27.8"
-python-dotenv = "^1.0.0"
+click = "^8.1"
+openai = "^0.27"
+python-dotenv = "^1.0"
 langchain = "^0.0.235"
-unstructured = "^0.8.1"
-rich = "^13.4.2"
+unstructured = "^0.8"
+rich = "^13.4"
 
 [tool.poetry.group.dev.dependencies]
-yapf = "^0.40.1"
-flake8 = "^6.0.0"
-pyinstaller = "^5.13.0"
-poethepoet = "^0.21.1"
-pre-commit = "^3.3.3"
+yapf = "^0.40"
+flake8 = "^6.0"
+pyinstaller = "^5.13"
+poethepoet = "^0.22"
+pre-commit = "^3.3"
 
 [tool.poetry-dynamic-versioning]
 enable = true
 vcs = "git"
 style = "semver"
+
+[tool.ruff]
+# Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
+select = ["E", "F"]
+ignore = []
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+fixable = [
+       "A",
+       "B",
+       "C",
+       "D",
+       "E",
+       "F",
+       "G",
+       "I",
+       "N",
+       "Q",
+       "S",
+       "T",
+       "W",
+       "ANN",
+       "ARG",
+       "BLE",
+       "COM",
+       "DJ",
+       "DTZ",
+       "EM",
+       "ERA",
+       "EXE",
+       "FBT",
+       "ICN",
+       "INP",
+       "ISC",
+       "NPY",
+       "PD",
+       "PGH",
+       "PIE",
+       "PL",
+       "PT",
+       "PTH",
+       "PYI",
+       "RET",
+       "RSE",
+       "RUF",
+       "SIM",
+       "SLF",
+       "TCH",
+       "TID",
+       "TRY",
+       "UP",
+       "YTT",
+]
+unfixable = []
+# Exclude a variety of commonly ignored directories.
+exclude = [
+       ".bzr",
+       ".direnv",
+       ".eggs",
+       ".git",
+       ".git-rewrite",
+       ".hg",
+       ".mypy_cache",
+       ".nox",
+       ".pants.d",
+       ".pytype",
+       ".ruff_cache",
+       ".svn",
+       ".tox",
+       ".venv",
+       "__pypackages__",
+       "_build",
+       "buck-out",
+       "build",
+       "dist",
+       "node_modules",
+       "venv",
+]
+# Same as Black.
+line-length = 99
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+# Assume Python 3.11
+target-version = "py311"
+
+[tool.ruff.mccabe]
+# Unlike Flake8, default to a complexity level of 10.
+max-complexity = 10
 
 [build-system]
 requires = ["poetry-core", "poetry-dynamic-versioning"]
@@ -39,6 +126,7 @@ clean = """
 rm -rf .coverage
        .cache
        .mypy_cache
+       .ruff_cache
        .pytest_cache
        ./**/__pycache__
        ./**/*.pyc
@@ -49,3 +137,4 @@ rm -rf .coverage
        build
        dist
 """
+lint = "pre-commit run --all-files"
