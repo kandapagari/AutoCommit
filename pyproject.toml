@@ -12,16 +12,17 @@ python = ">=3.10,<3.13"
 click = "^8.1"
 openai = "^0.27"
 python-dotenv = "^1.0"
-langchain = "^0.0.235"
-unstructured = "^0.8"
-rich = "^13.4"
+langchain = "^0.0.295"
+unstructured = "^0.10"
+rich = "^13.5"
+markdown = "^3.4.4"
 
 [tool.poetry.group.dev.dependencies]
 yapf = "^0.40"
-flake8 = "^6.0"
+flake8 = "^6.1"
 pyinstaller = "^5.13"
 poethepoet = "^0.22"
-pre-commit = "^3.3"
+pre-commit = "^3.4"
 
 [tool.poetry-dynamic-versioning]
 enable = true
