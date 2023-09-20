@@ -16,7 +16,7 @@ AutoCommit is a script that simplifies the process of generating a commit messag
     ```bash
     git clone git@github.com:kandapagari/AutoCommit.git
     cd AutoCommit
-    conda create --name autocommit python=3.10 poetry -y
+    conda create --name autocommit python=3.10 poetry -y # python 3.11 doesn't work as @asyncio.coroutine decorator is removed since Python 3.11 see https://stackoverflow.com/a/74345066
     conda activate autocommit
     poetry install
     ```
@@ -36,7 +36,7 @@ AutoCommit is a script that simplifies the process of generating a commit messag
 only use for quick commit if you trust AutoCommit to work
     ```bash
     echo "alias qac='echo \":q\" | ac'" >> ~/.bashrc
-    ```
+```
 
 ## Usage
 
