@@ -14,7 +14,7 @@ langchain = "^0.0.300"
 markdown = "^3.4.4"
 openai = {extras = ["all"], version = "^0.28.0"}
 python-dotenv = "^1.0"
-rich = "^13.5"
+rich = "^13.6"
 unstructured = "^0.10"
 
 [tool.poetry.group.dev.dependencies]
