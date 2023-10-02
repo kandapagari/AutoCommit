@@ -19,7 +19,7 @@ unstructured = "^0.10"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.1"
-poethepoet = "^0.22"
+poethepoet = "^0.24"
 pre-commit = "^3.4"
 pyinstaller = "^5.13"
 yapf = "^0.40"
