@@ -21,7 +21,7 @@ unstructured = "^0.10"
 flake8 = "^6.1"
 poethepoet = "^0.24"
 pre-commit = "^3.4"
-pyinstaller = "^5.13"
+pyinstaller = "^6.0"
 yapf = "^0.40"
 
 [tool.poetry-dynamic-versioning]
