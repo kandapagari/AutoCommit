@@ -2059,13 +2059,13 @@ typing-extensions = ">=3.7.4"
 
 [[package]]
 name = "unstructured"
-version = "0.10.27"
+version = "0.10.28"
 description = "A library that prepares raw documents for downstream ML tasks."
 optional = false
 python-versions = ">=3.7.0"
 files = [
-    {file = "unstructured-0.10.27-py3-none-any.whl", hash = "sha256:3a8a8e44302388ddc39c184059e8b4458f1cdc58032540b9af7d85f6c3eca3be"},
-    {file = "unstructured-0.10.27.tar.gz", hash = "sha256:f567b5c4385993a9ab48db5563dd7b413aac4f2002bb22e6250496ea8f440f5e"},
+    {file = "unstructured-0.10.28-py3-none-any.whl", hash = "sha256:0965567c2477c5a926517a295fd0318c2823a603d79c6f47f2bbe58f5aacb89e"},
+    {file = "unstructured-0.10.28.tar.gz", hash = "sha256:c995015c5d51d4732f2aa49663eebac4aacf51d7e905c8f240d14ff2269d392f"},
 ]
 
 [package.dependencies]
