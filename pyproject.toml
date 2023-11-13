@@ -22,6 +22,7 @@ flake8 = "^6.1"
 poethepoet = "^0.24"
 pre-commit = "^3.5"
 pyinstaller = "^6.2"
+setuptools-scm = "^8.0.4"
 yapf = "^0.40"
 
 [tool.poetry-dynamic-versioning]
