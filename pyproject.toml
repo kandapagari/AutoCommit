@@ -18,12 +18,12 @@ rich = "^13.7"
 unstructured = "^0.11"
 
 [tool.poetry.group.dev.dependencies]
-flake8 = "^6.1"
-poethepoet = "^0.24"
-pre-commit = "^3.5"
-pyinstaller = "^6.2"
-setuptools = "^69.0.2"
-setuptools-scm = "^8.0.4"
+flake8 = "^6"
+poethepoet = "^0"
+pre-commit = "^3"
+pyinstaller = "^6"
+setuptools = "^69"
+setuptools-scm = "^8"
 yapf = "^0.40"
 
 [tool.poetry-dynamic-versioning]
@@ -141,3 +141,5 @@ rm -rf .coverage
        dist
 """
 lint = "pre-commit run --all-files"
+
+[tool.setuptools_scm]
