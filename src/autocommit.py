@@ -115,7 +115,7 @@ def commit(message):
 
 def load_commit_guildlines(guild_path: str | Path | None = None):
     if guild_path is None:
-        guild_path = Path(f'{__file__}/../src/commit-message-guidelines.md').resolve()
+        guild_path = Path(f'{__file__}/../commit-message-guidelines.md').resolve()
     loader = UnstructuredMarkdownLoader(guild_path)
     return loader.load()[0].page_content
 
