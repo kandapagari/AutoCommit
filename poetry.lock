@@ -2217,13 +2217,13 @@ typing-extensions = ">=3.7.4"
 
 [[package]]
 name = "unstructured"
-version = "0.11.6"
+version = "0.11.8"
 description = "A library that prepares raw documents for downstream ML tasks."
 optional = false
 python-versions = ">=3.7.0"
 files = [
-    {file = "unstructured-0.11.6-py3-none-any.whl", hash = "sha256:f3e95dd82574bd1e082e2f65bcbc83664928488a426e1ff1c8b1b04b76852dfc"},
-    {file = "unstructured-0.11.6.tar.gz", hash = "sha256:f748e1b15010f63b178af8117c17f69ced7a14b0b18edda0bb9199ff84a22a2f"},
+    {file = "unstructured-0.11.8-py3-none-any.whl", hash = "sha256:71e8d135a723d8c692a0a43683e3dca4a9b3e0fd8a1d255f57689591ed3860c0"},
+    {file = "unstructured-0.11.8.tar.gz", hash = "sha256:dba8b2d54fdc781acef6c9590510e1f55e7467abaaf00403031331903d415f07"},
 ]
 
 [package.dependencies]
@@ -2288,6 +2288,7 @@ pdf = ["onnx", "pdf2image", "pdfminer.six", "pikepdf", "pypdf", "unstructured-in
 pinecone = ["pinecone-client"]
 ppt = ["python-pptx (<=0.6.23)"]
 pptx = ["python-pptx (<=0.6.23)"]
+qdrant = ["qdrant-client"]
 reddit = ["praw"]
 rst = ["pypandoc"]
 rtf = ["pypandoc"]
