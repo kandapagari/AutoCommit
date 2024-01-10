@@ -10,9 +10,9 @@ from pathlib import Path
 import click
 import dotenv
 import openai
-from langchain.chat_models import ChatOpenAI
-from langchain.document_loaders import UnstructuredMarkdownLoader
-from langchain.schema import HumanMessage, SystemMessage
+from langchain_community.document_loaders import UnstructuredMarkdownLoader
+from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_openai import ChatOpenAI
 from rich import print
 
 from utils import coro
@@ -115,7 +115,8 @@ def commit(message):
 
 def load_commit_guildlines(guild_path: str | Path | None = None):
     if guild_path is None:
-        guild_path = Path(f'{__file__}/../commit-message-guidelines.md').resolve()
+        guild_path = Path(
+            f'{__file__}/../commit-message-guidelines.md').resolve()
     loader = UnstructuredMarkdownLoader(guild_path)
     return loader.load()[0].page_content
 
