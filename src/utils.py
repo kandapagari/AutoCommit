@@ -5,7 +5,7 @@ from typing import Callable
 
 
 def coro(f: Callable):
-    f = asyncio.coroutine(f)
+    f = asyncio.coroutine(f)  # type: ignore
 
     def wrapper(*args, **kwargs):
         loop = asyncio.get_event_loop()
