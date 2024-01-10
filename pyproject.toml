@@ -9,13 +9,13 @@ packages = [{ include = "src", from = "." }]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
-click = "^8.1"
-langchain = "^0.1"
-markdown = "^3.5"
-openai = {extras = ["all"], version = "^1.6"}
-python-dotenv = "^1.0"
-rich = "^13.7"
-unstructured = "^0.11"
+click = "^8"
+langchain = "^0"
+markdown = "^3"
+openai = {extras = ["all"], version = "^1"}
+python-dotenv = "^1"
+rich = "^13"
+unstructured = "^0"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^7"
@@ -24,7 +24,7 @@ pre-commit = "^3"
 pyinstaller = "^6"
 setuptools = "^69"
 setuptools-scm = "^8"
-yapf = "^0.40"
+yapf = "^0"
 
 [tool.poetry-dynamic-versioning]
 enable = true
