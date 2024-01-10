@@ -79,12 +79,12 @@ def assemble_diffs(parsed_diffs, cutoff):
     return assembled_diffs
 
 
-async def complete(prompt, guild_lines: str | Path | None = None):
+async def complete(prompt, guild_lines: str | Path | None = None) -> str:
     model = ChatOpenAI(temperature=0, max_tokens=128, model="gpt-4")
     messages = [SystemMessage(content=str(guild_lines)),
                 HumanMessage(content=prompt[: PROMPT_CUTOFF + 100])]
     completion = model.invoke(messages)
-    return completion.content
+    return str(completion.content)
 
 
 async def summarize_diff(diff, guild_lines):
@@ -92,17 +92,17 @@ async def summarize_diff(diff, guild_lines):
     return await complete(DIFF_PROMPT + "\n\n" + diff + "\n\n", guild_lines)
 
 
-async def summarize_summaries(summaries, guild_lines):
+async def summarize_summaries(summaries, guild_lines) -> str:
     assert summaries
     return await complete(COMMIT_MSG_PROMPT + "\n\n" + summaries + "\n\n", guild_lines)
 
 
-async def generate_commit_message(diff, guild_lines):
+async def generate_commit_message(diff, guild_lines) -> str:
     if not diff:
         return "style: Fix whitespace"
 
     assembled_diffs = assemble_diffs(parse_diff(diff), PROMPT_CUTOFF)
-    summaries = await asyncio.gather(
+    summaries: list = await asyncio.gather(
         *[summarize_diff(diff, guild_lines) for diff in assembled_diffs]
     )
     return await summarize_summaries("\n".join(summaries), guild_lines)

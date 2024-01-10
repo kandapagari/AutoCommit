@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 import asyncio
 from functools import update_wrapper
+from typing import Callable
 
 
-def coro(f):
+def coro(f: Callable):
     f = asyncio.coroutine(f)
 
     def wrapper(*args, **kwargs):
