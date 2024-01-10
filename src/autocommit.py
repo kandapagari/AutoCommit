@@ -42,7 +42,7 @@ def get_diff(ignore_whitespace: bool = True) -> str:
     return diff_process.stdout.strip()
 
 
-def parse_diff(diff: str) -> tuple[str, str]:
+def parse_diff(diff: str) -> list:
     file_diffs = diff.split("\ndiff")
     file_diffs = [file_diffs[0]] + [
         "\ndiff" + file_diff for file_diff in file_diffs[1:]
@@ -81,9 +81,9 @@ def assemble_diffs(parsed_diffs, cutoff):
 
 async def complete(prompt, guild_lines: str | Path | None = None):
     model = ChatOpenAI(temperature=0, max_tokens=128, model="gpt-4")
-    messages = [SystemMessage(content=guild_lines),
+    messages = [SystemMessage(content=str(guild_lines)),
                 HumanMessage(content=prompt[: PROMPT_CUTOFF + 100])]
-    completion = model(messages)
+    completion = model.invoke(messages)
     return completion.content
 
 
@@ -117,7 +117,7 @@ def load_commit_guildlines(guild_path: str | Path | None = None):
     if guild_path is None:
         guild_path = Path(
             f'{__file__}/../commit-message-guidelines.md').resolve()
-    loader = UnstructuredMarkdownLoader(guild_path)
+    loader = UnstructuredMarkdownLoader(str(guild_path))
     return loader.load()[0].page_content
 
 
