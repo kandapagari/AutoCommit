@@ -9,16 +9,19 @@ from pathlib import Path
 
 import click
 import dotenv
-import openai
+from langchain.chains import LLMChain
 from langchain_community.document_loaders import UnstructuredMarkdownLoader
+from langchain_community.llms import OpenLLM
 from langchain_core.messages import HumanMessage, SystemMessage
-from langchain_openai import ChatOpenAI
+# from langchain_openai import ChatOpenAI
 from rich import print
 
 from utils import coro
 
 _ = dotenv.load_dotenv(dotenv.find_dotenv())
-openai.api_key = os.environ["OPENAI_API_KEY"]
+# openai.api_key = os.environ["OPENAI_API_KEY"]
+server_url = os.environ["SERVER_URL"]
+llm = OpenLLM(server_url=server_url)
 
 DIFF_PROMPT = "Generate a succinct summary of the following code changes:"
 COMMIT_MSG_PROMPT = (
@@ -204,7 +207,8 @@ async def complete(prompt: str, guild_lines: str | Path | None = None) -> str:
         >>> asyncio.run(complete("What's the weather like in Paris today?"))
         'The weather in Paris today is sunny with a high of 75°F and a low of 56°F.'
     """
-    model = ChatOpenAI(temperature=0, max_tokens=128, model="gpt-4")
+    model = LLMChain(prompt=prompt, llm=llm)
+    # model = ChatOpenAI(temperature=0, max_tokens=128, model="gpt-4")
     messages = [SystemMessage(content=str(guild_lines)),
                 HumanMessage(content=prompt[: PROMPT_CUTOFF + 100])]
     completion = model.invoke(messages)
