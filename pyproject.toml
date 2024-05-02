@@ -18,7 +18,6 @@ rich = "^13"
 unstructured = "^0"
 langchain-openai = "^0"
 langchain = "^0.1.17"
-openllm = "^0.4.44"
 pydantic-core = "^2.18.2"
 
 [tool.poetry.group.dev.dependencies]
