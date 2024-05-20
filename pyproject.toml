@@ -17,7 +17,7 @@ python-dotenv = "^1"
 rich = "^13"
 unstructured = "^0"
 langchain-openai = "^0"
-langchain = "^0.1.17"
+langchain = "^0.1.20"
 pydantic-core = "^2.18.2"
 
 [tool.poetry.group.dev.dependencies]
