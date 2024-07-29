@@ -11,17 +11,16 @@ import click
 import dotenv
 from langchain.chains import LLMChain
 from langchain_community.document_loaders import UnstructuredMarkdownLoader
-from langchain_community.llms import OpenLLM
+from langchain_community.llms import Ollama
 from langchain_core.messages import HumanMessage, SystemMessage
-# from langchain_openai import ChatOpenAI
 from rich import print
 
-from utils import coro
+from src.utils import coro
 
 _ = dotenv.load_dotenv(dotenv.find_dotenv())
 # openai.api_key = os.environ["OPENAI_API_KEY"]
 server_url = os.environ["SERVER_URL"]
-llm = OpenLLM(server_url=server_url)
+llm = Ollama(base_url=server_url, model='llama3:latest')
 
 DIFF_PROMPT = "Generate a succinct summary of the following code changes:"
 COMMIT_MSG_PROMPT = (
@@ -152,7 +151,7 @@ def assemble_diffs(parsed_diffs: list, cutoff: int) -> list:
     Note:
         This function does not validate the structure of `parsed_diffs` against a specific schema.
         It assumes that `parsed_diffs` is structured correctly as per the output of `parse_diff`.
-        Misstructured input may lead to unexpected output or errors.
+        Mis-structured input may lead to unexpected output or errors.
     """
     assembled_diffs = [""]
 
@@ -217,12 +216,14 @@ async def complete(prompt: str, guild_lines: str | Path | None = None) -> str:
 
 async def summarize_diff(diff: str, guild_lines: str) -> str:
     assert diff
-    return await complete(DIFF_PROMPT + "\n\n" + diff + "\n\n", guild_lines)
+    prompt = f"{DIFF_PROMPT}\n\n{diff}\n\n"
+    return await complete(prompt, guild_lines)
 
 
 async def summarize_summaries(summaries, guild_lines) -> str:
     assert summaries
-    return await complete(COMMIT_MSG_PROMPT + "\n\n" + summaries + "\n\n", guild_lines)
+    prompt = f"{COMMIT_MSG_PROMPT}\n\n{summaries}\n\n"
+    return await complete(prompt, guild_lines)
 
 
 async def generate_commit_message(diff, guild_lines) -> str:

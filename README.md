@@ -36,6 +36,7 @@ AutoCommit is a script that simplifies the process of generating a commit messag
 only use for quick commit if you trust AutoCommit to work
     ```bash
     echo "alias qac='echo \":q\" | ac'" >> ~/.bashrc
+
 ```
 
 ## Usage
