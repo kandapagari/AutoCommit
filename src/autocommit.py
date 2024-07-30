@@ -9,10 +9,10 @@ from pathlib import Path
 
 import click
 import dotenv
-from langchain.chains import LLMChain
 from langchain_community.document_loaders import UnstructuredMarkdownLoader
 from langchain_community.llms import Ollama
 from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_core.prompts import PromptTemplate
 from rich import print
 
 from src.utils import coro
@@ -24,7 +24,8 @@ llm = Ollama(base_url=server_url, model='llama3:latest')
 
 DIFF_PROMPT = "Generate a succinct summary of the following code changes:"
 COMMIT_MSG_PROMPT = (
-    "Using no more than 50 characters, "
+    "Using no more than 50 characters, ",
+    "only generate the commit message and do not generate any additional content.",
     "generate a descriptive commit message from these summaries:"
 )
 PROMPT_CUTOFF = 10000
@@ -184,7 +185,8 @@ def assemble_diffs(parsed_diffs: list, cutoff: int) -> list:
     return assembled_diffs
 
 
-async def complete(prompt: str, guild_lines: str | Path | None = None) -> str:
+async def complete(prompt_template: PromptTemplate, query: str,
+                   guild_lines: str | Path | None = None) -> str:
     """Asynchronously invokes an OpenAI model to complete a given prompt, with
     an optional context from guild lines.
 
@@ -206,24 +208,28 @@ async def complete(prompt: str, guild_lines: str | Path | None = None) -> str:
         >>> asyncio.run(complete("What's the weather like in Paris today?"))
         'The weather in Paris today is sunny with a high of 75°F and a low of 56°F.'
     """
-    model = LLMChain(prompt=prompt, llm=llm)
-    # model = ChatOpenAI(temperature=0, max_tokens=128, model="gpt-4")
+
+    prompt = prompt_template.format(input_=query)
+    model = prompt_template | llm
     messages = [SystemMessage(content=str(guild_lines)),
                 HumanMessage(content=prompt[: PROMPT_CUTOFF + 100])]
-    completion = model.invoke(messages)
-    return str(completion.content)
+    return model.invoke(messages)
 
 
 async def summarize_diff(diff: str, guild_lines: str) -> str:
     assert diff
-    prompt = f"{DIFF_PROMPT}\n\n{diff}\n\n"
-    return await complete(prompt, guild_lines)
+    prompt_template = PromptTemplate(
+        input_variables=['input_'],
+        template=f"{DIFF_PROMPT}\n\n" + '{input_}\n\n')
+    return await complete(prompt_template, diff, guild_lines)
 
 
 async def summarize_summaries(summaries, guild_lines) -> str:
     assert summaries
-    prompt = f"{COMMIT_MSG_PROMPT}\n\n{summaries}\n\n"
-    return await complete(prompt, guild_lines)
+    prompt_template = PromptTemplate(
+        input_variables=['input_'],
+        template=f"{COMMIT_MSG_PROMPT}\n\n" + '{input_}\n\n')
+    return await complete(prompt_template, summaries, guild_lines)
 
 
 async def generate_commit_message(diff, guild_lines) -> str:
