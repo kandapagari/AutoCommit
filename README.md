@@ -21,13 +21,7 @@ AutoCommit is a script that simplifies the process of generating a commit messag
     poetry install
     ```
 
-3. Either export `OPENAI_API_KEY` as an environment variable or add it to the `.env` file in the root of the repository. see [OpenAI API](https://platform.openai.com/docs/api-reference/authentication) for more information and [.env.example](.env.example) for an example.
-
-    ```bash
-    export OPENAI_API_KEY=<your-api-key>
-    ```
-
-4. Set up the alias by adding the following line to your shell configuration file (e.g., ~/.bashrc, ~/.zshrc):
+3. Set up the alias by adding the following line to your shell configuration file (e.g., ~/.bashrc, ~/.zshrc):
 
     ```bash
     echo "alias ac='bash $(pwd)/run.sh'" >> ~/.bashrc
@@ -36,8 +30,7 @@ AutoCommit is a script that simplifies the process of generating a commit messag
 only use for quick commit if you trust AutoCommit to work
     ```bash
     echo "alias qac='echo \":q\" | ac'" >> ~/.bashrc
-
-```
+    ```
 
 ## Usage
 
