@@ -70,6 +70,10 @@ qac
 
 This will generate a commit message for the staged files and initiate the commit process. Git will open a text editor for you to review and modify the generated commit message.
 
+### Recent Contributions
+
+![Alt](https://repobeats.axiom.co/api/embed/0dc4a7603b7fc40a447f39f0212f78f94a48d5ed.svg "Repobeats analytics image")
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
