@@ -21,7 +21,7 @@ unstructured = "^0"
 [tool.poetry.group.dev.dependencies]
 flake8 = "^7"
 poethepoet = "^0"
-pre-commit = "^3"
+pre-commit = "^4"
 pyinstaller = "^6"
 setuptools = "^75"
 setuptools-scm = "^8"
