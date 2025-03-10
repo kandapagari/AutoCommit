@@ -23,7 +23,7 @@ flake8 = "^7"
 poethepoet = "^0"
 pre-commit = "^4"
 pyinstaller = "^6"
-setuptools = "^75"
+setuptools = "^76"
 setuptools-scm = "^8"
 yapf = "^0"
 
