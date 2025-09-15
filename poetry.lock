@@ -1637,23 +1637,23 @@ type = ["mypy (>=1.8)"]
 
 [[package]]
 name = "poethepoet"
-version = "0.29.0"
-description = "A task runner that works well with poetry."
+version = "0.37.0"
+description = "A task runner that works well with poetry and uv."
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["dev"]
 files = [
-    {file = "poethepoet-0.29.0-py3-none-any.whl", hash = "sha256:f8dfe55006dcfb5cf31bcb1904e1262e1c642a4502fee3688cbf1bddfe5c7601"},
-    {file = "poethepoet-0.29.0.tar.gz", hash = "sha256:676842302f2304a86b31ac56398dd672fae8471128d2086896393384dbafc095"},
+    {file = "poethepoet-0.37.0-py3-none-any.whl", hash = "sha256:861790276315abcc8df1b4bd60e28c3d48a06db273edd3092f3c94e1a46e5e22"},
+    {file = "poethepoet-0.37.0.tar.gz", hash = "sha256:73edf458707c674a079baa46802e21455bda3a7f82a408e58c31b9f4fe8e933d"},
 ]
 
 [package.dependencies]
 pastel = ">=0.2.1,<0.3.0"
-pyyaml = ">=6.0.2,<7.0.0"
+pyyaml = ">=6.0.2,<7.0"
 tomli = {version = ">=1.2.2", markers = "python_version < \"3.11\""}
 
 [package.extras]
-poetry-plugin = ["poetry (>=1.0,<2.0)"]
+poetry-plugin = ["poetry (>=1.2.0,<3.0.0) ; python_version < \"4.0\""]
 
 [[package]]
 name = "pre-commit"
