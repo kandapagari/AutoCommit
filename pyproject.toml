@@ -15,7 +15,7 @@ langchain-community = "^0"
 markdown = "^3"
 pydantic-core = "^2.23"
 python-dotenv = "^1"
-rich = "^13"
+rich = "^14"
 unstructured = "^0"
 
 [tool.poetry.group.dev.dependencies]
